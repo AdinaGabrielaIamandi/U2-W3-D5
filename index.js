@@ -1,3 +1,6 @@
+let songs = [];
+let albums = [];
+
 const sectionOne = async function () {
   try {
     let res = await fetch(
@@ -18,6 +21,8 @@ const sectionOne = async function () {
             </div>     
         </div>
         `;
+        songs.push(songsList[i].title);
+        albums.push(songsList[i].album.title);
       }
     } else {
       console.log("Something went wrong");
@@ -55,6 +60,8 @@ const sectionTwo = async function () {
         </div>
         </div>
           `;
+      songs.push(song[0].title);
+      albums.push(song[0].album.title);
     } else {
       console.log("Something went wrong");
     }
@@ -81,6 +88,7 @@ const sectionThree1 = async function () {
         <h5>${album[10].album.title}</h5>
       </div>
             `;
+      albums.push(album[10].album.title);
     } else {
       console.log("Something went wrong");
     }
@@ -107,6 +115,7 @@ const sectionThree2 = async function () {
           <h5>${album[0].album.title}</h5>
       </div>
               `;
+      albums.push(album[0].album.title);
     } else {
       console.log("Something went wrong");
     }
@@ -133,6 +142,7 @@ const sectionThree3 = async function () {
           <h5>${album[0].album.title}</h5>
       </div>
                 `;
+      albums.push(album[0].album.title);
     } else {
       console.log("Something went wrong");
     }
@@ -141,3 +151,6 @@ const sectionThree3 = async function () {
   }
 };
 sectionThree3();
+
+songs.sort((a, b) => a.rank - b.rank);
+console.log(typeof songs);
