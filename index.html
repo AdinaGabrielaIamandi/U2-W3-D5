@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
 
@@ -41,19 +42,24 @@
         </div>
     </nav>
 
-    <main class="container">
-        <div class="row justify-content-center mt-5" id="card-one">
+    <main class="container mt-5">
+        <h2 class="text-center">Favourite singer</h2>
+        <div class="row justify-content-center" id="card-one">
         </div>
+        <hr>
     </main>
 
-    <section class="container">
-        <div class="card mb-3 mt-5">
+    <section class="container mt-5">
+        <h2>Favourite song</h2>
+        <div class="card mb-3">
             <div class="row g-0" id="card">
             </div>
         </div>
+        <hr>
     </section>
 
-    <div class="container mt-4" id="main">
+    <div class="container my-5" id="main">
+        <h2 class="text-center">Favourite albums</h2>
         <div class="row justify-content-center">
             <div class="col col-12 col-md-8 col-lg-6">
                 <div id="carouselExampleCaptions" class="carousel slide">
@@ -69,10 +75,10 @@
                         <div class="carousel-item active" id="first-label">
 
                         </div>
-                        <div class="carousel-item" id="second-label">
+                        <div class="carousel-item bg-secondary" id="second-label">
 
                         </div>
-                        <div class="carousel-item" id="third-label">
+                        <div class="carousel-item bg-secondary" id="third-label">
 
                         </div>
                     </div>
@@ -90,6 +96,44 @@
             </div>
         </div>
     </div>
+    <footer class="bg-primary py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <ul class="list-unstyled d-flex flex-column h-100 justify-content-center mb-0">
+                        <li>
+                            <a class="text-decoration-none text-light" href="https://www.google.com" target="_blank"><i
+                                    class="bi bi-twitter"> TWITTER </i></a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none text-light" href="https://www.bing.com" target="_blank"><i
+                                    class="bi bi-facebook"> FACEBOOK</i></a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none text-light" href="https://duckduckgo.com/" target="_blank"><i
+                                    class="bi bi-instagram"> INSTAGRAM</i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col text-center d-flex flex-column justify-content-center">
+                    Made with <i class="bi bi-balloon-heart-fill"></i> by ADINA
+                </div>
+                <div class="col text-center">
+                    <ul class="list-unstyled d-flex flex-column h-100 justify-content-center mb-0">
+                        <li>
+                            <a class="text-decoration-none text-light" href="#">Home</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none text-light" href="#">Songs</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none text-light" href="#">Coming soon</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 <script src="./index.js"></script>

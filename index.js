@@ -1,4 +1,4 @@
-const sectionOne1 = async function () {
+const sectionOne = async function () {
   try {
     let res = await fetch(
       "https://striveschool-api.herokuapp.com/api/deezer/search?q=ac/dc",
@@ -8,87 +8,17 @@ const sectionOne1 = async function () {
       let song = await res.json();
       let songsList = song.data;
       let cardOne = document.getElementById("card-one");
-      cardOne.innerHTML += `
+      for (let i = 0; i < 4; i++) {
+        cardOne.innerHTML += `
         <div class="card col col-2 col-md-2 m-2 p-0" style="width: 15rem;">
-            <img src="${songsList[0].album.cover_medium}" class="card-img-top" alt="${songsList[0].title} pic" style="height: 65%">
+            <img src="${songsList[i].album.cover_medium}" class="card-img-top" alt="${songsList[i].title} pic" style="height: 65%">
             <div class="card-body d-flex flex-column justify-content-around">
-                <h5 class="card-title" id="title">${songsList[0].title}</h5>
-                <p class="card-text">Album ${songsList[0].album.title}</p>
+                <h5 class="card-title" id="title">${songsList[i].title}</h5>
+                <p class="card-text">Album ${songsList[i].album.title}</p>
             </div>     
         </div>
         `;
-    } else {
-      console.log("Something went wrong");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-  try {
-    let res = await fetch(
-      "https://striveschool-api.herokuapp.com/api/deezer/search?q=ledzeppelin",
-      { method: "GET" }
-    );
-    if (res.ok) {
-      let song = await res.json();
-      let songsList = song.data;
-      let cardOne = document.getElementById("card-one");
-      cardOne.innerHTML += `
-        <div class="card col col-2 col-md-2 m-2 p-0" style="width: 15rem;">
-            <img src="${songsList[3].album.cover_medium}" class="card-img-top" alt="${songsList[3].title} pic" style="height: 65%">
-            <div class="card-body d-flex flex-column justify-content-around">
-                <h5 class="card-title" id="title">${songsList[3].title}</h5>
-                <p class="card-text">Album ${songsList[3].album.title}</p>
-            </div>     
-        </div>
-        `;
-    } else {
-      console.log("Something went wrong");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-  try {
-    let res = await fetch(
-      "https://striveschool-api.herokuapp.com/api/deezer/search?q=rehab",
-      { method: "GET" }
-    );
-    if (res.ok) {
-      let song = await res.json();
-      let songsList = song.data;
-      let cardOne = document.getElementById("card-one");
-      cardOne.innerHTML += `
-        <div class="card col col-2 col-md-2 m-2 p-0" style="width: 15rem;">
-            <img src="${songsList[0].album.cover_medium}" class="card-img-top" alt="${songsList[0].title} pic" style="height: 65%">
-            <div class="card-body d-flex flex-column justify-content-around">
-                <h5 class="card-title" id="title">${songsList[0].title}</h5>
-                <p class="card-text">Album ${songsList[0].album.title}</p>
-            </div>     
-        </div>
-        `;
-    } else {
-      console.log("Something went wrong");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-  try {
-    let res = await fetch(
-      "https://striveschool-api.herokuapp.com/api/deezer/search?q=sultansofswing",
-      { method: "GET" }
-    );
-    if (res.ok) {
-      let song = await res.json();
-      let songsList = song.data;
-      let cardOne = document.getElementById("card-one");
-      cardOne.innerHTML += `
-        <div class="card col col-2 col-md-2 m-2 p-0" style="width: 15rem;">
-            <img src="${songsList[0].album.cover_medium}" class="card-img-top" alt="${songsList[0].title} pic" style="height: 65%">
-            <div class="card-body d-flex flex-column justify-content-around">
-                <h5 class="card-title" id="title">${songsList[0].title}</h5>
-                <p class="card-text">Album ${songsList[0].album.title}</p>
-            </div>     
-        </div>
-        `;
+      }
     } else {
       console.log("Something went wrong");
     }
@@ -97,7 +27,7 @@ const sectionOne1 = async function () {
   }
 };
 
-sectionOne1();
+sectionOne();
 
 const sectionTwo = async function () {
   try {
@@ -147,7 +77,7 @@ const sectionThree1 = async function () {
       let fristLabel = document.getElementById("first-label");
       fristLabel.innerHTML += `
       <img src="${album[10].album.cover_big}" class="d-block w-100" alt="${album[10].album.title}">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block bg-secondary  bg-opacity-50">
         <h5>${album[10].album.title}</h5>
       </div>
             `;
@@ -173,7 +103,7 @@ const sectionThree2 = async function () {
       let secondLabel = document.getElementById("second-label");
       secondLabel.innerHTML += `
       <img src="${album[0].album.cover_big}" class="d-block w-100" alt="${album[10].album.title}">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block bg-secondary  bg-opacity-50">
           <h5>${album[0].album.title}</h5>
       </div>
               `;
@@ -199,7 +129,7 @@ const sectionThree3 = async function () {
       let thirdLabel = document.getElementById("third-label");
       thirdLabel.innerHTML += `
       <img src="${album[0].album.cover_big}" class="d-block w-100" alt="${album[10].album.title}">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
           <h5>${album[0].album.title}</h5>
       </div>
                 `;
