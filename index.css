@@ -1,18 +1,31 @@
 body {
   font-family: "Poppins", sans-serif;
-  background-color: teal;
+  background-image: url("./assets/d2zouwd-72054ae4-9a59-4799-a094-be4a4e1ef510.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
 nav,
 footer {
-  background-color: rgb(0, 74, 74) !important;
+  background-color: #910f0e !important;
 }
 
 #first-cards:hover {
-  transform: rotate(0deg) scale(1.2) !important;
+  transform: scale(1.2) !important;
   z-index: 1;
+  cursor: pointer;
 }
 
 .card {
-  background-color: lightblue;
+  background-color: #910f0e;
+}
+
+#audio {
+  width: 100%;
+}
+
+.btn:hover {
+  transform: scale(1.2) !important;
+  z-index: 1;
 }
