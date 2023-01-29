@@ -1,0 +1,18 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: teal;
+}
+
+nav,
+footer {
+  background-color: rgb(0, 74, 74) !important;
+}
+
+#first-cards:hover {
+  transform: rotate(0deg) scale(1.2) !important;
+  z-index: 1;
+}
+
+.card {
+  background-color: lightblue;
+}

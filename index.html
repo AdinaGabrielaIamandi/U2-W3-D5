@@ -12,20 +12,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,200&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="./index.css" />
     <title>Document</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="./assets/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                Fly Beautiful
+                Fly Music
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,6 +46,35 @@
             </div>
         </div>
     </nav>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">All titles</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-success d-none" role="alert">
+        <ul class="list-group rank-songs"></ul>
+    </div>
+
+    <div class="container d-flex justify-content-evenly my-3">
+        <button class="btn btn-info" onclick="songsRank()">Order of rank</button>
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            onclick="titles()">
+            Show all titles
+        </button>
+    </div>
 
     <main class="container mt-5">
         <h2 class="text-center">Favourite singer</h2>
@@ -105,7 +130,8 @@
             </div>
         </div>
     </div>
-    <footer class="bg-info py-4">
+
+    <footer class="py-4">
         <div class="container">
             <div class="row">
                 <div class="col text-center">

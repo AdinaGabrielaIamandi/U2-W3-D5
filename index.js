@@ -1,6 +1,3 @@
-let songs = [];
-let albums = [];
-
 const sectionOne = async function () {
   try {
     let res = await fetch(
@@ -13,16 +10,14 @@ const sectionOne = async function () {
       let cardOne = document.getElementById("card-one");
       for (let i = 0; i < 4; i++) {
         cardOne.innerHTML += `
-        <div class="card col col-2 col-md-2 m-2 p-0" style="width: 15rem;">
+        <div class="card col col-2 col-md-2 m-2 p-0" style="width: 15rem;" id="first-cards">
             <img src="${songsList[i].album.cover_medium}" class="card-img-top" alt="${songsList[i].title} pic" style="height: 65%">
             <div class="card-body d-flex flex-column justify-content-around">
-                <h5 class="card-title" id="title">${songsList[i].title}</h5>
-                <p class="card-text">Album ${songsList[i].album.title}</p>
+                <h5 class="card-title song" id="title" songRank="${songsList[i].rank}">${songsList[i].title}</h5>
+                <p class="card-text" id="album">Album ${songsList[i].album.title}</p>
             </div>     
         </div>
         `;
-        songs.push(songsList[i].title);
-        albums.push(songsList[i].album.title);
       }
     } else {
       console.log("Something went wrong");
@@ -50,9 +45,9 @@ const sectionTwo = async function () {
         </div>
         <div class="col-md-8">
             <div class="card-body ">
-            <h5 class="card-title">${song[0].title}</h5>
+            <h5 class="card-title song" songRank="${song[0].rank}">${song[0].title}</h5>
             <p class="card-text pb-0"><small class="text-muted">${song[0].artist.name}</small></p>
-            <p class="card-text pt-0"><small class="text-muted">Album ${song[0].album.title}</small></p>
+            <p class="card-text pt-0" id="album"><small class="text-muted">Album ${song[0].album.title}</small></p>
             <p class="card-text">Written by John Fogerty and performed by Creedence Clearwater Revival. The song is about the
                 uncertainty and change in life, and how it can often be hard to understand or predict. The lyrics ask the question
                 "have you ever seen the rain, coming down on a sunny day?" which is a metaphor for unexpected changes in life.
@@ -60,8 +55,6 @@ const sectionTwo = async function () {
         </div>
         </div>
           `;
-      songs.push(song[0].title);
-      albums.push(song[0].album.title);
     } else {
       console.log("Something went wrong");
     }
@@ -85,10 +78,9 @@ const sectionThree1 = async function () {
       fristLabel.innerHTML += `
       <img src="${album[10].album.cover_big}" class="d-block w-100" alt="${album[10].album.title}">
       <div class="carousel-caption d-none d-md-block bg-secondary  bg-opacity-50">
-        <h5>${album[10].album.title}</h5>
+        <h5>Album ${album[10].album.title}</h5>
       </div>
             `;
-      albums.push(album[10].album.title);
     } else {
       console.log("Something went wrong");
     }
@@ -112,10 +104,9 @@ const sectionThree2 = async function () {
       secondLabel.innerHTML += `
       <img src="${album[0].album.cover_big}" class="d-block w-100" alt="${album[10].album.title}">
       <div class="carousel-caption d-none d-md-block bg-secondary  bg-opacity-50">
-          <h5>${album[0].album.title}</h5>
+          <h5>Album ${album[0].album.title}</h5>
       </div>
               `;
-      albums.push(album[0].album.title);
     } else {
       console.log("Something went wrong");
     }
@@ -139,10 +130,9 @@ const sectionThree3 = async function () {
       thirdLabel.innerHTML += `
       <img src="${album[0].album.cover_big}" class="d-block w-100" alt="${album[10].album.title}">
       <div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
-          <h5>${album[0].album.title}</h5>
+          <h5>Album ${album[0].album.title}</h5>
       </div>
                 `;
-      albums.push(album[0].album.title);
     } else {
       console.log("Something went wrong");
     }
@@ -152,5 +142,50 @@ const sectionThree3 = async function () {
 };
 sectionThree3();
 
-songs.sort((a, b) => a.rank - b.rank);
-console.log(typeof songs);
+const songs = () => {
+  let songs = document.querySelectorAll(".song");
+  let songTitles = [];
+  songs.forEach((title) => {
+    songTitles.push({
+      title: title.innerText,
+      rank: Number(title.getAttribute("songRank"))
+    });
+  });
+  return songTitles;
+};
+
+const songsRank = () => {
+  let songsList = songs();
+  let sorted = songsList.sort((a, b) => {
+    return a.rank - b.rank;
+  });
+  let alert = document.querySelector(".alert ul.rank-songs");
+  alert.innerHTML = "";
+  sorted.forEach((song) => {
+    alert.innerHTML += `<li class='list-group-item'>
+    ${song.rank} - ${song.title}
+      </li>`;
+  });
+  alert.parentElement.classList.toggle("d-none");
+};
+
+const titles = () => {
+  let h5 = document.querySelectorAll("h5");
+  let id = document.querySelectorAll("#album");
+  let allTitles = [];
+  h5.forEach((title) => {
+    allTitles.push(title.innerText);
+  });
+  id.forEach((title) => {
+    allTitles.push(title.innerText);
+  });
+  let alphabeticalTitles = allTitles.sort();
+  let modal = document.querySelector(".modal-body");
+  modal.innerHTML = "";
+  alphabeticalTitles.forEach((tuttiTitoli) => {
+    modal.innerHTML += `
+      <p class='list-group-item'>
+        ${tuttiTitoli}
+      </p>`;
+  });
+};
